@@ -1,0 +1,5 @@
+export const TYPES = {
+  IS_FETCHING: "FETCHING",
+  SUCCESS: "SUCCESS",
+  ERROR: "ERROR",
+}
