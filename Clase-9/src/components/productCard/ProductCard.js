@@ -1,9 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Window, WindowHeader, WindowContent, Cutout } from "react95";
 import Button from "../button/Button";
 import { ContainerButton } from "./ProductCardStyles";
 
 export const ProductCard = (props) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <Window style={{ maxWidth: "350px" }}>
@@ -11,19 +14,19 @@ export const ProductCard = (props) => {
           <span role="img" aria-label="Kiwi">
             📍
           </span>
-          Helados
+          { props.name }
         </WindowHeader>
 
         <WindowContent style={{ padding: "0.25rem" }}>
           <Cutout>
             <img
               style={{ width: "100%", height: "1uto", display: "block" }}
-              src="https://res.cloudinary.com/dcatzxqqf/image/upload/v1653953042/coding/helado_nlovrp.webp"
-              alt="heladoss"
+              src={props.src}
+              alt="algo"
             />
           </Cutout>
           <ContainerButton>
-            <Button primary onClick={(e) => e.preventDefault()}>
+            <Button primary onClick={() => navigate( `${props.name}` )}>
               {" "}
               Ver más{" "}
             </Button>

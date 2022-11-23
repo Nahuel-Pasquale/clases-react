@@ -4,6 +4,8 @@ import reportWebVitals from "./reportWebVitals";
 import Routes from "./routes/Routes";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./styles/GlobalStyles";
+import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
 
 const tokyoDark = {
   name: "tokyoDark",
@@ -44,7 +46,11 @@ root.render(
   <React.StrictMode>
     <GlobalStyles />
     <ThemeProvider theme={tokyoDark}>
-      <Routes />
+      <BrowserRouter>
+        <AuthProvider>
+          <Routes />
+        </AuthProvider>
+      </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>
 );

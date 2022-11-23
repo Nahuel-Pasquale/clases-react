@@ -6,8 +6,21 @@ import {
   LoginSectionStyled,
   LoginTitleStyled,
 } from "./LoginStyles";
+import { useContext } from "react";
+import AuthContext from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function Login() {
+  const { handleSubmit, form, isAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(isAuth) {
+      navigate('/');
+    }
+  }, [navigate, isAuth]);
+
   return (
     <LoginSectionStyled>
       <LoginTitleStyled>{"Unite a la comunidad pa...."}</LoginTitleStyled>
@@ -17,7 +30,7 @@ function Login() {
             type="text"
             placeholder="Escribí tu username..."
             id="username"
-            value=""
+            value={form.username}
             name="username"
             label="User"
             maxLength={10}
@@ -28,7 +41,7 @@ function Login() {
             placeholder="Escribí tu contraseña..."
             id="password"
             name="password"
-            value=""
+            value={form.password}
             label="Password"
             error="Este campo es requerido"
           />
@@ -37,7 +50,7 @@ function Login() {
             primary
             type="submit"
             onClick={(e) => {
-              e.preventDefault();
+              handleSubmit(e);
             }}
           >
             Enviar!

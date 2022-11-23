@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 export const NavbarContainerStyled = styled.header`
@@ -43,7 +44,7 @@ export const NavbarStyled = styled.nav`
   gap: 10px;
 `;
 
-export const LinkButtonStyled = styled.a`
+export const LinkButtonStyled = styled(NavLink)`
   border: none;
   background: transparent;
   color: ${(props) => props.theme.materialText};
