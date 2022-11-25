@@ -1,0 +1,32 @@
+{
+  "bandas": [
+    {
+      "id": 1,
+      "name": "Mancha de Rolando",
+      "img": "https://i0.wp.com/elplanetaurbano.com/wp-content/uploads/2021/11/Mancha_De_Rolando_Planeta_Urbano_2021-5.jpg?resize=1250%2C781&ssl=1",
+      "listeners": "245.000",
+      "genre": "Rock"
+    },
+    {
+      "id": 2,
+      "name": "Indio Solari",
+      "img": "https://resizer.glanacion.com/resizer/DBEHGebk8bTi50HtHOl32-YN9nU=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CT4SEZH4UNC4NAZJNQ26M4SKFY.jpg",
+      "listeners": "700.000",
+      "genre": "Rock Nacional"
+    },
+    {
+      "id": 3,
+      "name": "Melendi",
+      "img": "https://2.bp.blogspot.com/-qzFkiICj35g/V3KK1e8rIDI/AAAAAAAA_KQ/2d2Fa0BPXGUjg8zqaH3kC6cGAt14_bmzwCLcB/s1600/Fernando-Alonso-Melendi.jpg",
+      "listeners": "555.000",
+      "genre": "Pop y Rumba"
+    },
+    {
+      "id": 4,
+      "name": "Duki",
+      "img": "https://www.clarin.com/img/2022/05/14/duki-hizo-un-ig-live___0w9XdjOWZ_2000x1500__1.jpg",
+      "listeners": "1.150.000",
+      "genre": "Trap y Funk"
+    }
+  ]
+}
