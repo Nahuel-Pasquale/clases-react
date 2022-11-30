@@ -1,17 +1,15 @@
 import styled from "styled-components";
-import { widescreen } from "../../mediaQueries/queries";
 
 export const CardContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
+
   width: 210px;
+
   padding: 28px 30px;
+
   border-radius: 8px;
   background-color: #181818;
-
-  ${widescreen} {
-    
-  }
 `;
 
 export const CardContentContainerStyled = styled.div`
@@ -21,6 +19,7 @@ export const CardContentContainerStyled = styled.div`
 
 export const CardTitleStyled = styled.h2`
   margin: 0;
+
   color: #ffffff;
   font-weight: 700;
   font-size: 20px;

@@ -12,13 +12,16 @@ import {
 
 const Card = (props) => {
   const { name, img, listeners, genre } = props;
+
   return (
     <CardContainerStyled>
       <BandPhoto img={img} alt={name} />
 
       <CardContentContainerStyled>
-        <CardTitleStyled> { name } </CardTitleStyled>
-        <CardDescriptionStyled> { listeners } </CardDescriptionStyled>
+        <CardTitleStyled>{name}</CardTitleStyled>
+        <CardDescriptionStyled>
+          {listeners} oyentes mensuales
+        </CardDescriptionStyled>
       </CardContentContainerStyled>
 
       <BandButton genre={genre} />

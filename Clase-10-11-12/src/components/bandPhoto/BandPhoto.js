@@ -7,10 +7,7 @@ import {
 const BandPhoto = ({ img, alt }) => {
   return (
     <BandPhotoContainerStyled>
-      <BandPhotoImageStyled
-        src={img}
-        alt={alt}
-      />
+      <BandPhotoImageStyled src={img} alt={alt} />
     </BandPhotoContainerStyled>
   );
 };
