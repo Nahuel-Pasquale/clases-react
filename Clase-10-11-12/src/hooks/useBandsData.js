@@ -7,7 +7,7 @@ const fetchBands = () => {
 
 export const useBandsData = (name) => {
   return useQuery(name, fetchBands, {
-    staleTime: 3000,
-    cacheTime: 4000,
+    staleTime: 30000,
+    cacheTime: 20000,
   });
 };

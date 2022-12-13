@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const BandButtonStyled = styled.button`
   margin: 0 auto;
@@ -8,4 +8,12 @@ export const BandButtonStyled = styled.button`
   border-radius: 12px;
 
   color: #c4b5fd;
+
+  ${ (props) => 
+    props.deleteButton &&
+    css`
+      color: rgba(255,255,255,0.87);
+      background-color: #f63356;
+      cursor: pointer;
+    `}
 `;

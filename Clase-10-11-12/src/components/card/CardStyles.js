@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const CardContainerStyled = styled.div`
   display: flex;
@@ -33,3 +34,16 @@ export const CardDescriptionStyled = styled.p`
   font-size: 14px;
   line-height: 20px;
 `;
+
+export const ButtonsContainerStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`
+
+export const LinkStyled = styled(Link)`
+  text-decoration: none;
+  color: white;
+`;
+
+

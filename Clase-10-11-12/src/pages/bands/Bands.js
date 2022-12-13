@@ -1,12 +1,10 @@
-import { Button } from "@mui/material";
-import { Box } from "@mui/system";
-import axios from "axios";
+
 import React from "react";
-import { useQuery } from "react-query";
 import Card from "../../components/card/Card";
+import Modal from "../../components/modal/Modal";
 import Loader from "../../components/loader/Loader";
 import { useBandsData } from "../../hooks/useBandsData";
-import { BandsContainerStyled, BandsDisabledMessageStyled, BandsErrorMessageStyled } from "./BandsStyles";
+import { BandsContainerStyled, BandsErrorMessageStyled } from "./BandsStyles";
 
 
 // const fetchBands = () => {
@@ -26,7 +24,7 @@ const Bands = () => {
   //   },
   // });
 
-  const { data, isLoading, isError, error } = useBandsData('Bands');
+  const { data, isLoading, isError, error } = useBandsData('bands');
 
   return (
     <>
@@ -40,6 +38,7 @@ const Bands = () => {
           {data.data.map((band) => (
             <Card key={band.id} {...band} />
           ))}
+          <Modal />
         </BandsContainerStyled>
       )}
 
