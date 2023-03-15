@@ -1,13 +1,27 @@
+import { ErrorMessage, Field } from 'formik';
 import React from 'react';
 
-import { InputBoxStyled, InputLabelStyled, InputStyled } from './InputStyles';
+import { ErrorMessageStyled, InputBoxStyled, InputLabelStyled, InputStyled } from './InputStyles';
 
-const Input = ({ children, htmlFor, type, id, placeholder }) => {
+const Input = ({ children, name, htmlFor, type, id, placeholder }) => {
   return (
-    <InputBoxStyled>
-      <InputLabelStyled htmlFor={htmlFor}>{children}</InputLabelStyled>
-      <InputStyled type={type} id={id} placeholder={placeholder} />
-    </InputBoxStyled>
+    <Field name={name}>
+      { ({ field, form: { errors, touched } }) => (
+        <InputBoxStyled>
+          <InputLabelStyled htmlFor={htmlFor}>{children}</InputLabelStyled>
+          <InputStyled 
+            type={type} 
+            id={id} 
+            {...field}
+            isError={errors[field.name] && touched[field.name]}
+            placeholder={placeholder} />
+          <ErrorMessage name={field.name}>
+            { message => <ErrorMessageStyled> { message } </ErrorMessageStyled> }
+          </ErrorMessage>
+        </InputBoxStyled>
+      )
+    }
+    </Field>
   );
 };
 
