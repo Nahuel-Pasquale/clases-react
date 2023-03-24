@@ -10,20 +10,32 @@ import {
   ForgotEmailStyled,
   Form,
 } from './ForgotPasswordStyles';
+import { forgotPasswordInitialValues, forgotPasswordValidationSchema } from '../../formik';
+import { resetPassword } from '../../firebase/firebase-utils';
+import useRedirect from '../../hooks/useRedirect';
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
 
+  useRedirect('/');
+
   return (
     <ForgotContainerStyled>
       <h1>Reestablece tu contraseña</h1>
-      <Formik>
+      <Formik
+        initialValues={forgotPasswordInitialValues}
+        validationSchema={forgotPasswordValidationSchema}
+        onSubmit={async (values, action) => {
+          await resetPassword(values.email);
+          action.resetForm();
+        }}
+      >
         <Form>
-          <LoginInput type='text' placeholder='Mail de recuperación' />
+          <LoginInput name='email' type='text' placeholder='Mail de recuperación' />
           <ForgotEmailStyled onClick={() => navigate('/login')}>
             ¿Ya te acordaste la contraseña? Volvé
           </ForgotEmailStyled>
-          <Submit type='button' onClick={e => e.preventDefault()}>
+          <Submit>
             Ingresar
           </Submit>
         </Form>

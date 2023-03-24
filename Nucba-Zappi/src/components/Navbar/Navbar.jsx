@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
+import * as userActions from '../../redux/user/user-actions';
 
 import { FaUserAlt } from 'react-icons/fa';
 import { HiHome } from 'react-icons/hi';
@@ -17,11 +18,14 @@ import {
   UserNavStyled,
   UserContainerStyled,
   SpanStyled,
+  UserImageStyled,
 } from './NavbarStyles';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Navbar() {
-
   const navigate = useNavigate();
+  const currentUser = useSelector(state => state.user.currentUser);
+  const dispatch = useDispatch();
 
   return (
     <NavbarContainerStyled>
@@ -50,9 +54,21 @@ function Navbar() {
         </CartNavStyled>
 
         <UserNavStyled>
-          <UserContainerStyled onClick={() => navigate('/register')}>
-            <SpanStyled>Inicia sesión</SpanStyled>
-            <FaUserAlt />
+          <UserContainerStyled 
+            onClick={ () =>
+              currentUser 
+                ? dispatch(userActions.toggleMenuHidden())
+                : navigate('/register')
+            }
+          >
+            <SpanStyled>
+              { currentUser ? `${currentUser.displayName}` : `Inicia sesión`}
+            </SpanStyled>
+            { currentUser?.photoURL
+              ? (
+                <UserImageStyled src={ currentUser.photoURL } alt={currentUser.displayName} />
+                ) 
+              : (<FaUserAlt />)}
           </UserContainerStyled>
         </UserNavStyled>
       </LinksContainerStyled>

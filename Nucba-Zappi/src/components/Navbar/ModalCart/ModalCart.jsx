@@ -40,7 +40,8 @@ const ModalCart = () => {
     if(!hiddenCart) {
       dispatch(cartActions.toggleHiddenCart());
     }
-  }, [dispatch, hiddenCart]);
+    // eslint-disable-next-line
+  }, [dispatch]);
 
   const totalPrice = cartItems.reduce((acc, item) => {
     return (acc += item.price * item.quantity);
